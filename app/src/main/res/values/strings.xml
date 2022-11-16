@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SensorApp</string>
+    <string name="sensors_count">Liczba czujników %d</string>
+    <string name="missing_sensor">Brak czujnika</string>
+    <string name="light_sensor_label">Wartość: %.2f</string>
+    <string name="location_permission_denied">Location permission denied.</string>
 </resources>
