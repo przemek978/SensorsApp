@@ -18,6 +18,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+
 
 public class LocationActivity extends AppCompatActivity {
 
@@ -26,7 +29,7 @@ public class LocationActivity extends AppCompatActivity {
     public String TAG = "LocationActivity";
     private Location lastLocation;
     private TextView locationTextView;
-    //private FusedLocationProviderClient fusedLocationClient;
+    private FusedLocationProviderClient fusedLocationClient;
     private TextView addressTextView;
 
     @Override
@@ -36,7 +39,7 @@ public class LocationActivity extends AppCompatActivity {
         getLocationButton = findViewById(R.id.get_location_button);
         getLocationButton.setOnClickListener((View v)->getLocation());
         locationTextView = findViewById(R.id.textview_location);
-       //fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+       fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         //addressTextView = findViewById(R.id.textview_address);
         //Button getAddressButton = findViewById(R.id.get_address_button);
         //getAddressButton.setOnClickListener(v->executeGeocoding());
@@ -50,16 +53,16 @@ public class LocationActivity extends AppCompatActivity {
             Log.d(TAG, "getLocation: permissions granted");
         }
 
-//        fusedLocationClient.getLastLocation().addOnSuccessListener(location->{
-//            if(location!=null){
-//                lastLocation = location;
-//                locationTextView.setText(
-//                        getString(R.string.location_text, location.getLatitude(), location.getLongitude(), location.getTime()));
-//            }
-//            else{
-//                locationTextView.setText(R.string.no_location);
-//            }
-//        });
+        fusedLocationClient.getLastLocation().addOnSuccessListener(location->{
+            if(location!=null){
+                lastLocation = location;
+                locationTextView.setText(
+                        getString(R.string.location_text, location.getLatitude(), location.getLongitude(), location.getTime()));
+            }
+            else{
+                locationTextView.setText(R.string.no_location);
+            }
+        });
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
