@@ -2,8 +2,14 @@
     <string name="app_name">SensorApp</string>
     <string name="sensors_count">Liczba czujników %d</string>
     <string name="missing_sensor">Brak czujnika</string>
-    <string name="light_sensor_label">Wartość: %.2f</string>
+    <string name="sensor_label0">Wartość: 0.00</string>
+    <string name="sensor_label">Wartość: %.2f</string>
+    <string name="sensor_label2">Wartość: x: %.2f, y: %.2f, z: %.2f</string>
     <string name="location_permission_denied">Location permission denied.</string>
     <string name="location_text">Szerokość geograficzna: %1$.4f \n Długość geograficzna: %2$.4f \n Czas: %3$tr</string>
     <string name="no_location">Brak lokalizacji</string>
+    <string name="address_text">"Adres: %1$s \n Czas: %2$tr"</string>
+    <string name="service_not_available">Niedostępne</string>
+    <string name="no_address_found">Nie znaleziono adresu</string>
+
 </resources>
